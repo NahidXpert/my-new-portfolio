@@ -251,7 +251,7 @@ export default function ModernAnimatedHeroSection() {
             Explore my work
           </a>
           <a
-            href="mailto:hello@nahidxpert.dev"
+            href="#contact"
             className="rounded-full border border-slate-600 px-7 py-3 text-sm font-bold text-white transition hover:border-lime-400 hover:text-lime-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lime-300"
           >
             Let&apos;s talk
