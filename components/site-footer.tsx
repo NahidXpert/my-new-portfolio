@@ -5,11 +5,11 @@ export function SiteFooter() {
 
   return (
     <footer className="border-t border-slate-800 bg-black px-6 py-10 text-slate-400">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
         <p className="font-mono text-xs uppercase tracking-[0.18em]">
           © {year} MD Nahid Nur
         </p>
-        <div className="flex items-center gap-5">
+        <div className="flex items-center justify-center gap-5">
           <Link
             href="https://github.com/NahidXpert"
             target="_blank"
@@ -22,6 +22,15 @@ export function SiteFooter() {
             </svg>
           </Link>
           <Link
+            href="/#contact"
+            aria-label="Email contact form"
+            className="transition hover:text-lime-400"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-none stroke-current">
+              <path d="M3 5.5h18v13H3zM3 6l9 7 9-7" strokeWidth="1.8" />
+            </svg>
+          </Link>
+          <Link
             href="https://www.linkedin.com/in/nahid-nur/"
             target="_blank"
             rel="noreferrer"
@@ -31,13 +40,6 @@ export function SiteFooter() {
             <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current">
               <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.99h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM3.54 20.45H7.1V8.99H3.54v11.46ZM22.22 0H1.78C.8 0 0 .78 0 1.74v20.52C0 23.22.8 24 1.78 24h20.44c.98 0 1.78-.78 1.78-1.74V1.74C24 .78 23.2 0 22.22 0Z" />
             </svg>
-          </Link>
-          <Link
-            href="/#contact"
-            aria-label="Contact"
-            className="font-mono text-xs uppercase tracking-[0.16em] transition hover:text-lime-400"
-          >
-            Contact
           </Link>
         </div>
       </div>
