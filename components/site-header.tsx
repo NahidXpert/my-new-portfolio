@@ -101,7 +101,7 @@ export function SiteHeader() {
               <GitHubIcon />
             </Link>
             <Link
-              href="https://www.linkedin.com/in/nahid-nur/"
+              href="https://www.linkedin.com/in/nahiidnur/"
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
@@ -110,11 +110,13 @@ export function SiteHeader() {
               <LinkedInIcon />
             </Link>
             <Link
-              href="/#contact"
-              aria-label="Email contact form"
+              href="https://www.instagram.com/_nahidnur_/?hl=en"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
               className="text-slate-400 transition hover:text-lime-400"
             >
-              <EmailIcon />
+              <InstagramIcon />
             </Link>
           </div>
         </div>
@@ -139,10 +141,12 @@ function LinkedInIcon() {
   );
 }
 
-function EmailIcon() {
+function InstagramIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-none stroke-current">
-      <path d="M3 5.5h18v13H3zM3 6l9 7 9-7" strokeWidth="1.8" />
+      <rect x="3" y="3" width="18" height="18" rx="5" strokeWidth="1.8" />
+      <circle cx="12" cy="12" r="4" strokeWidth="1.8" />
+      <circle cx="17.5" cy="6.5" r="1" className="fill-current stroke-none" />
     </svg>
   );
 }
