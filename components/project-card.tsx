@@ -38,12 +38,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           View Details
         </Link>
       </div>
-      <div className="p-5">
-        <p className="font-mono text-xs uppercase tracking-[0.25em] text-slate-500">
-          {project.eyebrow}
-        </p>
-        <h3 className="mt-2 text-2xl font-bold text-white">{project.title}</h3>
-      </div>
     </article>
   );
 }

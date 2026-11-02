@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 
 const navigation = [
   { label: "Home", href: "/#home" },
@@ -14,10 +14,24 @@ const navigation = [
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
 
+  function handleHomeClick(event: MouseEvent<HTMLAnchorElement>) {
+    if (window.location.pathname !== "/") {
+      return;
+    }
+
+    event.preventDefault();
+    window.history.pushState(null, "", "/#home");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/75 backdrop-blur-xl">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
-        <Link href="/#home" className="flex items-center gap-3">
+        <Link
+          href="/#home"
+          onClick={handleHomeClick}
+          className="flex items-center gap-3"
+        >
           <Image
             src="/android-chrome-192x192.png"
             alt="MD Nahid Nur"
