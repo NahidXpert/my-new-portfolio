@@ -4,7 +4,7 @@ import { projects } from "@/lib/projects";
 
 export default function Home() {
   return (
-    <main className="bg-black">
+    <main id="home" className="bg-black">
       <ModernAnimatedHeroSection />
       <section
         id="about"
