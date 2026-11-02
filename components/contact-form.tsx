@@ -56,8 +56,9 @@ export function ContactForm() {
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_template" value="table" />
         <div className="grid gap-6 sm:grid-cols-2">
-          <label className="space-y-2">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400">
+          <label className="flex min-w-0 flex-col gap-2">
+            <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-slate-400">
+              <UserIcon />
               Name
             </span>
             <input
@@ -69,8 +70,9 @@ export function ContactForm() {
               placeholder="Your name"
             />
           </label>
-          <label className="space-y-2">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400">
+          <label className="flex min-w-0 flex-col gap-2">
+            <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-slate-400">
+              <EmailIcon />
               Email
             </span>
             <input
@@ -85,8 +87,9 @@ export function ContactForm() {
             />
           </label>
         </div>
-        <label className="block space-y-2">
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400">
+        <label className="flex min-w-0 flex-col gap-2">
+          <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-slate-400">
+            <MessageIcon />
             Message
           </span>
           <textarea
@@ -94,7 +97,7 @@ export function ContactForm() {
             required
             rows={6}
             className="w-full resize-y rounded-xl border border-slate-700 bg-black px-4 py-3 text-white outline-none transition placeholder:text-slate-600 focus:border-lime-400"
-            placeholder="Tell me a little about your project..."
+            placeholder="Tell me about your project or just say hello..."
           />
         </label>
         <button
@@ -173,5 +176,58 @@ export function ContactForm() {
         </div>
       ) : null}
     </>
+  );
+}
+
+function UserIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className="h-4 w-4 shrink-0"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.7"
+    >
+      <circle cx="12" cy="7" r="3" />
+      <path d="M5 21a7 7 0 0 1 14 0" />
+    </svg>
+  );
+}
+
+function EmailIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className="h-4 w-4 shrink-0"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.7"
+    >
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m4 7 8 6 8-6" />
+    </svg>
+  );
+}
+
+function MessageIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className="h-4 w-4 shrink-0"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.7"
+    >
+      <path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-5 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+    </svg>
   );
 }
