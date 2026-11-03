@@ -82,9 +82,9 @@ export default function Home() {
       </section>
       <section
         id="work"
-        className="border-t border-slate-800 bg-black px-6 py-24 sm:py-32"
+        className="border-t border-slate-800 bg-black px-6 py-24 sm:px-8 sm:py-32 lg:px-12"
       >
-        <div className="mx-auto w-full max-w-5xl">
+        <div className="mx-auto w-full max-w-7xl">
           <div className="mb-12">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-lime-400">
               Selected work
@@ -93,7 +93,7 @@ export default function Home() {
               Projects built with purpose.
             </h2>
           </div>
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((project, index) => (
               <InView
                 key={project.slug}

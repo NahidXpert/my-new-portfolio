@@ -43,12 +43,41 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {project.video ? (
           <video
-            className="mt-5 aspect-video w-full rounded-2xl border border-slate-800 object-cover"
+            className="mt-16 aspect-video w-full rounded-2xl border border-slate-800 bg-black object-cover shadow-2xl shadow-black/30"
             src={project.video}
-            controls
+            autoPlay
+            muted
+            loop
             playsInline
           />
         ) : null}
+
+        <section
+          aria-label={`${project.title} screenshots`}
+          className="mt-8 grid gap-5 sm:gap-6"
+        >
+          <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900">
+            <img
+              src={project.desktopImage}
+              alt={`${project.title} desktop view`}
+              className="block aspect-[16/9] w-full object-cover"
+            />
+          </div>
+          <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-6">
+            {project.mobileImages.map((image, index) => (
+              <div
+                key={image}
+                className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900"
+              >
+                <img
+                  src={image}
+                  alt={`${project.title} mobile view ${index + 1}`}
+                  className="block h-auto w-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
 
         <div className="mt-16 flex flex-col gap-8 border-t border-slate-800 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap gap-3">
