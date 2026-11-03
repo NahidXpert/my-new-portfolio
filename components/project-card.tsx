@@ -23,7 +23,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       />
       <div
         className={`absolute inset-0 flex translate-y-0 flex-col items-center justify-center bg-black/50 p-6 text-center transition duration-500 md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 ${
-          isOpen ? "opacity-100" : "pointer-events-none opacity-0"
+          isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         } md:pointer-events-auto`}
       >
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-lime-400">

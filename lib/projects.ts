@@ -39,7 +39,11 @@ export const projects: Project[] = [
       "A clean, responsive news reading experience designed to make browsing the latest stories simple and comfortable on every screen.",
     image: "/project/news-reader/image-news.png",
     desktopImage: "/project/news-reader/image-news.png",
-    mobileImages: ["/project/news-reader/Screen Shot 2026-11-03 at 20.33.41.png"],
+    mobileImages: [
+      "/project/news-reader/Screen Shot 2026-11-03 at 20.33.41.png",
+      "/project/news-reader/Screen Shot 2026-11-03 at 22.47.32.png",
+      "/project/news-reader/Screen Shot 2026-11-03 at 22.48.33.png",
+    ],
     tags: ["React", "TypeScript", "Responsive UI", "News API"],
     liveUrl: "https://news-reader-beryl.vercel.app",
     codeUrl: "https://github.com/NahidXpert/news-reader",

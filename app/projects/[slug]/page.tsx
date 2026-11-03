@@ -41,6 +41,37 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </p>
         </div>
 
+        <div className="mt-10 flex flex-col gap-8 border-t border-slate-800 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap gap-3">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-slate-700 px-4 py-2 font-mono text-xs text-slate-300"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="flex shrink-0 gap-3">
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full bg-lime-400 px-5 py-3 text-sm font-bold text-black transition hover:bg-lime-300"
+            >
+              View Live
+            </a>
+            <a
+              href={project.codeUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-slate-600 px-5 py-3 text-sm font-bold text-white transition hover:border-lime-400 hover:text-lime-400"
+            >
+              View Code
+            </a>
+          </div>
+        </div>
+
         {project.video ? (
           <video
             className="mt-16 aspect-video w-full rounded-2xl border border-slate-800 bg-black object-cover shadow-2xl shadow-black/30"
@@ -79,36 +110,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </section>
 
-        <div className="mt-16 flex flex-col gap-8 border-t border-slate-800 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap gap-3">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full border border-slate-700 px-4 py-2 font-mono text-xs text-slate-300"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-          <div className="flex gap-3">
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full bg-lime-400 px-5 py-3 text-sm font-bold text-black transition hover:bg-lime-300"
-            >
-              View Live
-            </a>
-            <a
-              href={project.codeUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-slate-600 px-5 py-3 text-sm font-bold text-white transition hover:border-lime-400 hover:text-lime-400"
-            >
-              View Code
-            </a>
-          </div>
-        </div>
       </div>
     </main>
   );
