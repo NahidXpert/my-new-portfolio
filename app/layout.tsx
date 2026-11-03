@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nahid Xpert | Frontend Developer",
+  title: "Nahid Nur",
   description: "Portfolio of Nahid Xpert, a frontend developer building thoughtful digital experiences.",
   icons: {
     icon: [
