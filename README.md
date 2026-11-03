@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nahid Nur Portfolio
 
-## Getting Started
+Personal portfolio website for Nahid Nur, built with Next.js, React, TypeScript, and Tailwind CSS. The site presents a responsive introduction, selected projects, project case-study pages, and a contact form.
 
-First, run the development server:
+## Features
+
+- Animated hero section with navigation to About, Projects, and Contact
+- Responsive About section with a looping personal video
+- Project cards with mobile-friendly tap interactions
+- Individual project pages generated from the project data in [`lib/projects.ts`](./lib/projects.ts)
+- Project detail pages with:
+  - Project title and description
+  - Technology tags
+  - Live demo and source-code links
+  - Autoplaying, muted, looping project video when available
+  - Desktop screenshot
+  - Full-length mobile screenshots in a responsive grid
+- Contact form with submission feedback
+- Custom favicon and web manifest
+- Static generation for all project detail routes
+
+## Featured projects
+
+| Project | Live demo | Source code |
+| --- | --- | --- |
+| Gather & Thyme recipe app | [Open app](https://recipes-app-mu-nine.vercel.app) | [GitHub](https://github.com/NahidXpert/recipes-app) |
+| News Reader | [Open app](https://news-reader-beryl.vercel.app) | [GitHub](https://github.com/NahidXpert/news-reader) |
+| Mess Meal Management | [Open app](https://nahidxpert.github.io/mess-meal-manager/) | [GitHub](https://github.com/NahidXpert/mess-meal-manager) |
+
+Project media is stored under [`public/project`](./public/project). Add or update a project by editing the corresponding entry in [`lib/projects.ts`](./lib/projects.ts).
+
+## Tech stack
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- ESLint
+- Geist Sans and Geist Mono fonts through `next/font`
+
+## Getting started
+
+### Requirements
+
+- Node.js 20 or newer
+- npm
+
+### Install dependencies
+
+```bash
+npm ci
+```
+
+### Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Available commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev    # Start the development server
+npm run lint   # Run ESLint
+npm run build  # Create a production build
+npm run start  # Start the production server
+```
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```text
+app/
+  page.tsx                 Home page
+  layout.tsx               Global layout and metadata
+  globals.css              Global styles
+  projects/[slug]/page.tsx Project detail pages
+components/                Reusable UI components
+lib/projects.ts            Project content and media configuration
+public/project/            Project videos and screenshots
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The project is ready to deploy on [Vercel](https://vercel.com). Import the repository, use the default Next.js settings, and deploy. No environment variables are required for the current version.
