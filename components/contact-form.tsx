@@ -9,7 +9,7 @@ interface Web3FormsResponse {
 }
 
 const web3FormsEndpoint = "https://api.web3forms.com/submit";
-const web3FormsAccessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+const web3FormsAccessKey = "535e4fe6-a2bf-454a-b8e7-b04846a2145";
 
 export function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -33,10 +33,6 @@ export function ContactForm() {
 
     setIsSubmitting(true);
     try {
-      if (!web3FormsAccessKey) {
-        throw new Error("Web3Forms access key is not configured");
-      }
-
       const response = await fetch(web3FormsEndpoint, {
         method: "POST",
         headers: { Accept: "application/json" },

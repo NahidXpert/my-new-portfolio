@@ -87,10 +87,6 @@ The project is ready to deploy on [Vercel](https://vercel.com). Import the repos
 
 ### Contact form configuration
 
-The contact form uses [Web3Forms](https://web3forms.com/) instead of FormSubmit. Create an access key using `nahidnurx@gmail.com`, then add it to a local `.env.local` file:
-
-```env
-NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_web3forms_access_key
-```
-
-Add the same variable in the Vercel project settings under **Settings → Environment Variables**, then redeploy. The access key is read from an environment variable and is not committed to the repository.
+The contact form uses [Web3Forms](https://web3forms.com/). Its public access
+key is included in the client-side form, so no environment variable is
+required for local development or Vercel deployments.
