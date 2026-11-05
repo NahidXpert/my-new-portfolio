@@ -9,7 +9,7 @@ interface Web3FormsResponse {
 }
 
 const web3FormsEndpoint = "https://api.web3forms.com/submit";
-const web3FormsAccessKey = "535e4fe6-a2bf-454a-b8e7-b04846a2145";
+const web3FormsAccessKey = "535e4fe6-a2bf-454a-b8e7-b04846a214e5";
 
 export function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
