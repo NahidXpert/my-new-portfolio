@@ -3,9 +3,13 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 
 type Status = "success" | "error" | null;
+interface Web3FormsResponse {
+  success?: boolean;
+  message?: string;
+}
 
-const formSubmitEndpoint =
-  "https://formsubmit.co/309aaf2803356beb59e7a9c0c24a33fd";
+const web3FormsEndpoint = "https://api.web3forms.com/submit";
+const web3FormsAccessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
 export function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -29,14 +33,26 @@ export function ContactForm() {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch(formSubmitEndpoint, {
+      if (!web3FormsAccessKey) {
+        throw new Error("Web3Forms access key is not configured");
+      }
+
+      const response = await fetch(web3FormsEndpoint, {
         method: "POST",
         headers: { Accept: "application/json" },
-        body: new FormData(event.currentTarget),
+        body: (() => {
+          const formData = new FormData(event.currentTarget);
+          formData.set("access_key", web3FormsAccessKey);
+          formData.set("replyto", String(formData.get("email") ?? ""));
+          return formData;
+        })(),
       });
 
-      if (!response.ok) {
-        throw new Error(`FormSubmit returned ${response.status}`);
+      const result = (await response.json()) as Web3FormsResponse;
+      if (!response.ok || result.success !== true) {
+        throw new Error(
+          result.message ?? `Web3Forms returned ${response.status}`,
+        );
       }
 
       formRef.current?.reset();
@@ -52,9 +68,9 @@ export function ContactForm() {
   return (
     <>
       <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-        <input type="hidden" name="_subject" value="New portfolio contact message" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="subject" value="New portfolio contact message" />
+        <input type="hidden" name="from_name" value="Nahid Nur portfolio" />
+        <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} />
         <div className="grid gap-6 sm:grid-cols-2">
           <label className="flex min-w-0 flex-col gap-2">
             <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-slate-400">

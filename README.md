@@ -83,4 +83,14 @@ public/project/            Project videos and screenshots
 
 ## Deployment
 
-The project is ready to deploy on [Vercel](https://vercel.com). Import the repository, use the default Next.js settings, and deploy. No environment variables are required for the current version.
+The project is ready to deploy on [Vercel](https://vercel.com). Import the repository, use the default Next.js settings, and deploy.
+
+### Contact form configuration
+
+The contact form uses [Web3Forms](https://web3forms.com/) instead of FormSubmit. Create an access key using `nahidnurx@gmail.com`, then add it to a local `.env.local` file:
+
+```env
+NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_web3forms_access_key
+```
+
+Add the same variable in the Vercel project settings under **Settings → Environment Variables**, then redeploy. The access key is read from an environment variable and is not committed to the repository.
