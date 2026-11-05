@@ -14,6 +14,7 @@ const web3FormsAccessKey = "535e4fe6-a2bf-454a-b8e7-b04846a2145";
 export function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<Status>(null);
+  const [statusMessage, setStatusMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
@@ -52,9 +53,15 @@ export function ContactForm() {
       }
 
       formRef.current?.reset();
+      setStatusMessage(result.message ?? "Your message has been received.");
       setStatus("success");
     } catch (error) {
       console.error("Contact form submission failed:", error);
+      setStatusMessage(
+        error instanceof Error
+          ? error.message
+          : "Please check your connection and try again.",
+      );
       setStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -156,8 +163,8 @@ export function ContactForm() {
                   Message sent successfully!
                 </h2>
                 <p className="mt-3 leading-7 text-slate-300">
-                  Thanks for reaching out! I&apos;ve received your message and
-                  will get back to you as soon as possible.
+                  {statusMessage ||
+                    "Thanks for reaching out! I&apos;ve received your message and will get back to you as soon as possible."}
                 </p>
                 <p className="mt-5 font-mono text-xs uppercase tracking-[0.18em] text-slate-500">
                   You can close this window now.
@@ -172,8 +179,8 @@ export function ContactForm() {
                   Message could not be sent
                 </h2>
                 <p className="mt-3 leading-7 text-slate-300">
-                  Something went wrong while sending your message. Please try
-                  again.
+                  {statusMessage ||
+                    "Something went wrong while sending your message. Please try again."}
                 </p>
               </>
             )}
